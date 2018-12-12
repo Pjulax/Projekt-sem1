@@ -8,9 +8,10 @@
 int main(int argc, char * argv[])
 {
 	std::string inFileName, outFileName;
-	for (int i = 1; i < argc; i++) {
-		if (argv[i] == "-i") inFileName = argv[i + 1];
-		if (argv[i] == "-d") outFileName = argv[i + 1];
+
+	for (int i = 2; i < argc; i+=2) {
+		if (argv[i-1][0] == '-' && argv[i-1][1] == 'i') inFileName = argv[i];
+		if (argv[i - 1][0] == '-' && argv[i - 1][1] == 'd') outFileName = argv[i];
 	}
 
 	readFile(inFileName);
